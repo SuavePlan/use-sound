@@ -72,6 +72,7 @@ export default function useSound<T = any>(
         new HowlConstructor.current({
           src: Array.isArray(src) ? src : [src],
           volume,
+          rate: playbackRate,
           onload: handleLoad,
           ...delegated,
         })
@@ -97,7 +98,7 @@ export default function useSound<T = any>(
         sound.rate(playbackRate);
       }
     }
-  }, [sound, volume, playbackRate]);
+  }, [sound, volume, playbackRate, delegated.sprite]);
 
   const play: PlayFunction = React.useCallback(
     (options?: PlayOptions) => {
