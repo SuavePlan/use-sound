@@ -124,21 +124,21 @@ export default function useSound<T = any>(
   );
 
   const stop = React.useCallback(
-    id => {
+    (id?: string | number) => {
       if (!sound) {
         return;
       }
-      sound.stop(id);
+      sound.stop(id as number);
     },
     [sound]
   );
 
   const pause = React.useCallback(
-    id => {
+    (id?: string | number) => {
       if (!sound) {
         return;
       }
-      sound.pause(id);
+      sound.pause(id as number);
     },
     [sound]
   );
